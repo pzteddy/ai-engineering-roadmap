@@ -8,6 +8,10 @@ All notable repository changes are recorded here. The format follows
 
 ### Added
 
+- Five executable Level 1 OpenAI Chat Playground labs covering zero-shot baselines, few-shot
+  classification, structured JSON, governed context, and prompting-strategy evaluation.
+- Synthetic test cases, scoring rubrics, starter prompts, detailed reference solutions, security
+  boundaries, and enterprise extensions for every Level 1 lab.
 - Four-level `Use → Build → Engineer → Own` maturity model derived from the enterprise roadmap.
 - Domain contracts for prompt/context engineering, tools/automation, evaluation/scale,
   ownership/responsibility, agentic AI, and enterprise architecture.
@@ -16,6 +20,10 @@ All notable repository changes are recorded here. The format follows
 
 ### Changed
 
+- Clarified that few-shot prompting is a form of in-context learning and added scenario-based
+  guidance for selecting zero-shot, demonstrations, reference context, combined prompting, or
+  non-prompt controls.
+- Updated repository phase status to show the Level 1 subset of the lab delivery phase as complete.
 - Reframed the initial software/ML curriculum as an enterprise AI capability and ownership journey.
 - Aligned the root README and roadmap with `Answer → Action → System → Product` outcomes.
 

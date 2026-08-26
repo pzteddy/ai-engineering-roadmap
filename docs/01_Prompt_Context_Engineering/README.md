@@ -19,9 +19,9 @@ ROLE
 This is a design checklist, not a magical formula. The important result is a clear task, the minimum
 authorized context, explicit boundaries, a usable output contract, and a way to verify quality.
 
-## Curriculum contract
+## Curriculum scope
 
-Future Level 1 content will cover:
+Level 1 covers:
 
 - AI fundamentals and material limitations;
 - prompt engineering, system instructions, few-shot examples, and reusable patterns;
@@ -31,6 +31,9 @@ Future Level 1 content will cover:
 - prompt debugging, evaluation loops, versioning, and common failures;
 - role-specific examples for analysts, project managers, developers, architects, RPA engineers,
   and AI engineers.
+
+The detailed lesson pages remain planned. The implemented
+[five-lab Chat Playground sequence](../../labs/level-1/README.md) provides executable practice now.
 
 ## Context quality gate
 

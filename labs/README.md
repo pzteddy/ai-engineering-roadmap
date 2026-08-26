@@ -47,7 +47,8 @@ earlier evidence rather than discarding it.
 
 ## Phase status
 
-Phase 1 defines these contracts and tracks. Executable lab directories are implemented in repository
-delivery Phase 7; this foundation does not claim they already exist.
+The five Level 1 Chat Playground labs are implemented with instructions, safe synthetic assets,
+starter prompts, reference solutions, and evaluation gates. Level 2–4 lab directories remain
+contracts for future work and do not claim executable implementations.
 
 [Repository overview](../README.md) · [Maturity roadmap](../ROADMAP.md)

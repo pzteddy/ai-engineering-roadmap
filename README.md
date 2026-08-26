@@ -6,9 +6,9 @@ This repository is a reusable knowledge base and hands-on learning platform for 
 move beyond one-off AI demonstrations. It teaches how to improve AI answers, connect models to real
 work, engineer measurable production systems, and take responsibility for business outcomes.
 
-> **Repository status:** Phase 1 is the foundation only. The repository structure, learning
-> contracts, contribution rules, and roadmap are defined. Detailed lessons and executable labs are
-> intentionally delivered in later phases.
+> **Repository status:** The Phase 1 foundation and the five-lab Level 1 Chat Playground suite are
+> implemented. Detailed lesson pages and the Level 2–4 executable labs remain planned work; the
+> roadmap distinguishes current evidence from future scope.
 
 ## The maturity journey
 

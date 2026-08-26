@@ -345,8 +345,8 @@ Stars indicate relative emphasis, not whether a capability may be ignored.
 
 ## Repository delivery phases
 
-Repository delivery is separate from learner maturity. Only Phase 1 is implemented in the current
-foundation.
+Repository delivery is separate from learner maturity. Phase 1 is complete, and the Level 1 subset
+of Phase 7 is implemented as a five-lab OpenAI Chat Playground sequence.
 
 | Phase | Repository scope | Status |
 | --- | --- | --- |
@@ -356,7 +356,7 @@ foundation.
 | 4 | `docs/03_Evaluation_Reliability_Scale/` lessons and examples | **Planned** |
 | 5 | `docs/04_Ownership_Responsibility/` lessons and examples | **Planned** |
 | 6 | Agentic AI, enterprise architectures, security guidance, and reusable templates | **Planned** |
-| 7 | Executable labs for all four maturity levels | **Planned** |
+| 7 | Executable labs for all four maturity levels | **In progress — Level 1 complete; Levels 2–4 planned** |
 
 ## Maintenance policy
 
