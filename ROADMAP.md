@@ -1,276 +1,370 @@
-# AI Engineering Roadmap Delivery Plan
+# AI Engineering Maturity Roadmap
 
-This document is both a curriculum sequence and a repository delivery plan. It makes dependencies
-explicit, defines evidence-based exit criteria, and prevents later topics from being added as an
-unstructured collection of links.
+The roadmap develops AI capability and responsibility together. It starts with effective use,
+progresses through controlled action and measurable systems, and ends with accountable enterprise
+product ownership.
 
-## How to read this roadmap
+```text
+AI User
+   ↓
+Prompt Engineer
+   ↓
+AI Automation Engineer
+   ↓
+AI Engineer
+   ↓
+AI Solution Architect
+   ↓
+AI Product / Solution Owner
+```
 
-Each phase has two kinds of outcomes:
+The four capability levels map to four observable outcomes:
 
-- **Learner outcomes** describe capabilities a reader should demonstrate.
-- **Repository outcomes** describe the material and quality controls that must exist before that
-  phase can be considered implemented.
+```text
+USE AI       → BUILD WITH AI → ENGINEER AI → OWN AI
+ANSWER       → ACTION        → SYSTEM      → PRODUCT
+```
 
-Status applies to repository delivery, not to an individual learner.
+## How to use this roadmap
 
-| Status | Meaning |
-| --- | --- |
-| **Complete** | Scope, structure, and exit criteria are implemented and validated. |
-| **Planned** | Sequenced and bounded here, but implementation is intentionally deferred. |
+Progress is evidence-based. A learner may test out of familiar material by demonstrating the exit
+criteria, but should not skip evaluation, security, or production ownership because a demo appears
+to work.
 
-## Phase summary
+Every level specifies:
 
-| Phase | Focus | Repository status | Primary evidence |
-| --- | --- | --- | --- |
-| 1 | Knowledge repository foundation | **Complete** | Navigable structure, content contracts, validated links, and Git history |
-| 2 | Orientation and engineering foundations | **Planned** | Tested service, reproducible environment, and engineering baseline |
-| 3 | Data and applied machine learning | **Planned** | Reproducible experiment with leakage-safe evaluation |
-| 4 | Deep learning foundations | **Planned** | Instrumented training pipeline and model analysis |
-| 5 | LLM application engineering | **Planned** | Evaluated retrieval/tool-using application with explicit failure taxonomy |
-| 6 | Production AI and operations | **Planned** | Deployed, observable, secured service with rollback and cost controls |
-| 7 | AI systems design | **Planned** | Defensible architecture and capacity/reliability analysis |
-| 8 | Integrated portfolio | **Planned** | End-to-end capstone with reviewable engineering evidence |
+- required knowledge and engineering skills;
+- tools and system boundaries;
+- expected deliverables;
+- production and security responsibility;
+- recommended hands-on evidence.
 
-## Phase 1 — Knowledge repository foundation
+## Level 1 — Use AI: Prompt & Context Engineering
 
-**Objective:** establish a repository that can grow without losing sequence, quality, or navigability.
+**Core question:** How do I get better, repeatable answers?
 
-### Delivered
+**Boundary:** AI produces information. A human still decides and performs the business action.
 
-- A clear mission, audience, learning model, evidence standard, and scope in the root
-  [README](README.md).
-- A dependency-ordered directory structure covering the AI engineering lifecycle.
-- Curriculum contracts for every domain, including outcomes, evidence, and boundaries.
-- This phased delivery plan with measurable exit criteria for future work.
-- A Git repository on `main` with a focused foundation commit.
+### Required knowledge
 
-### Exit criteria
+- AI and LLM capabilities, probabilistic behavior, context windows, and material limitations.
+- The difference between prompt engineering (what the model should do) and context engineering
+  (what the model needs to know).
+- A practical prompt checklist: role, goal, context, task/input, constraints, output, and examples.
+- Structured outputs, few-shot examples, system instructions, verification, and prompt versioning.
+- Context quality: relevance, authority, freshness, sufficiency, and authorization.
+- RAG as controlled runtime retrieval rather than indiscriminate document loading.
 
-- Every tracked directory has an explanatory index; no empty directories or marker-only files are used.
-- Every relative Markdown link resolves to a repository file or a valid in-page heading.
-- Future phases are described precisely enough to guide implementation without presenting plans as completed content.
-- The working tree is inspected before the foundation commit.
+### Required engineering skills
 
-No lessons, code labs, datasets, or capstone implementations are part of Phase 1.
+- Convert vague requests into explicit, testable task contracts.
+- Select the minimum necessary context from governed sources.
+- Define output schemas and reject malformed or incomplete results.
+- Create representative test cases and inspect failure categories.
+- Version prompts and context assumptions so behavior can be reproduced.
 
-## Phase 2 — Orientation and engineering foundations
+### Required tools
 
-**Domains:** [orientation](00-orientation/README.md) and
-[engineering foundations](01-engineering-foundations/README.md)
+An approved model interface, a text or code editor, Git, JSON validation, and safe sample documents.
+Retrieval may be introduced to explain context sourcing, but autonomous business execution is out of
+scope at this level.
 
-**Objective:** create the software delivery baseline required for trustworthy AI work.
+### Expected deliverables
 
-### Learner outcomes
+- A reusable prompt pattern with purpose, owner, version, inputs, constraints, and output contract.
+- A small test set covering normal, edge, missing-context, and unsafe-input cases.
+- A context-source register identifying source authority, freshness, permissions, and retention.
+- A result review documenting errors, limitations, and the next improvement hypothesis.
 
-- Translate a product problem into testable requirements and measurable acceptance criteria.
-- Use Python packaging, type hints, exceptions, logging, and configuration deliberately.
-- Work confidently with Git, shell tools, environments, HTTP, APIs, SQL, and containers.
-- Write unit, integration, and contract tests and diagnose failures from evidence.
-- Expose a small capability through a documented service boundary.
+### Production responsibility
 
-### Repository outcomes
+The learner owns correct task framing and human verification before use. Level 1 output must not be
+presented as an authorized business decision or automatically mutate enterprise state.
 
-- A diagnostic entry assessment with routing guidance based on observed gaps.
-- Short concept notes paired with executable exercises and expected behavior.
-- A reference service that demonstrates packaging, tests, persistence, configuration, and CI.
-- Troubleshooting material that teaches diagnosis rather than command copying.
+### Security responsibility
 
-### Exit criteria
+Exclude unnecessary personal data, passwords, API keys, confidential documents, unauthorized
+content, and outdated procedures. Document what the model may and may not receive.
 
-From a clean checkout, the learner can build, test, and run a typed Python service backed by a
-database; explain its API and failure behavior; and use Git history to review the work. The service
-must reject invalid input, log useful context without secrets, and include automated tests at more
-than one boundary.
+### Recommended labs
 
-## Phase 3 — Data and applied machine learning
-
-**Domain:** [data and machine learning](02-data-and-ml/README.md)
-
-**Objective:** turn imperfect data into defensible predictions and decisions.
-
-### Learner outcomes
-
-- Profile data and identify missingness, bias, label ambiguity, leakage, and drift risks.
-- Establish a simple baseline before increasing model complexity.
-- Select splits and metrics that match the decision context and error costs.
-- Build reproducible feature and training pipelines rather than stateful notebook sequences.
-- Communicate uncertainty, subgroup behavior, limitations, and experiment conclusions.
-
-### Repository outcomes
-
-- Worked examples for tabular data, text features, supervised learning, and unsupervised analysis.
-- Evaluation modules covering calibration, thresholding, class imbalance, and error analysis.
-- Reproducibility guidance for data lineage, environments, seeds, and experiment records.
-- A project gate with a review rubric focused on validity rather than leaderboard performance.
+Use the [Level 1 lab contract](labs/level-1/README.md): basic prompting, role and context, structured
+output, context engineering, and prompt debugging.
 
 ### Exit criteria
 
-The learner can reproduce an experiment from source data, justify the split and metric, compare a
-candidate against a baseline, rule out common leakage paths, analyze material errors, and package
-inference behind a stable interface.
+The learner can turn a weak request into a structured, reusable, testable AI task; justify its
+context; validate the result against explicit criteria; and explain why a human remains responsible
+for the action.
 
-## Phase 4 — Deep learning foundations
+## Level 2 — Build with AI: Tools & Automation
 
-**Domain:** [deep learning](03-deep-learning/README.md)
+**Core question:** How can AI perform useful work without receiving uncontrolled authority?
 
-**Objective:** understand and operate neural training systems well enough to debug and adapt them.
+**Boundary:** AI may select or propose a capability. The application controls authorization,
+validation, execution, and durable state.
 
-### Learner outcomes
+### Required knowledge
 
-- Explain tensors, gradients, optimization, regularization, batching, and representation learning.
-- Implement and inspect a training loop with checkpoints and validation.
-- Diagnose underfitting, overfitting, unstable optimization, and data pipeline bottlenecks.
-- Use transfer learning and embeddings with an informed view of their limitations.
-- Explain attention and transformer components at an implementation-relevant level.
+- Tool and function contracts, REST APIs, databases, files, search, and structured errors.
+- Read versus write capabilities and risk-based autonomy.
+- Workflow engines, RPA, queues, idempotency, retries, reconciliation, and human approval.
+- MCP as a standardized integration mechanism—not an authorization boundary.
+- Deterministic workflow versus agentic workflow trade-offs.
+- RAG, model, tool, policy, system-of-record, and audit responsibilities.
 
-### Repository outcomes
+### Required engineering skills
 
-- Framework-backed labs that expose, rather than hide, training mechanics.
-- Controlled experiments showing the effects of optimization and regularization choices.
-- Compute-aware guidance covering memory, throughput, reproducibility, and checkpointing.
-- A model-card-style report template grounded in measured behavior.
+- Expose narrow, testable capabilities with typed inputs and outputs.
+- Validate identity, permission, schema, business rules, and risk before execution.
+- Separate reasoning, policy, execution, system of record, reconciliation, and audit.
+- Design safe failure behavior and prevent duplicate or partially committed actions.
+- Integrate APIs, SQL, files, workflow tools, or RPA without giving the model broad access.
 
-### Exit criteria
+### Required tools
 
-The learner can train or adapt a neural model, recover the run from a checkpoint, interpret training
-and validation signals, investigate a failed run systematically, and report performance and resource
-usage against a baseline.
+Python or JavaScript, REST/JSON, SQL, model tool calling, MCP where appropriate, and an orchestration
+or automation platform such as n8n or UiPath. Enterprise examples may include Azure services, but
+the architecture must remain portable.
 
-## Phase 5 — LLM application engineering
+### Expected deliverables
 
-**Domain:** [LLM engineering](04-llm-engineering/README.md)
+- Tool contracts with input/output schemas, owner, permissions, timeout, and error behavior.
+- A workflow diagram showing model, policy gate, tools, business system, and audit path.
+- A risk classification for every tool, including required approval and autonomy level.
+- Integration tests for valid, invalid, unauthorized, unavailable, and duplicate requests.
+- A controlled execution record with correlation ID and reconciliation result.
 
-**Objective:** build model-powered applications whose behavior is measurable and bounded.
+### Production responsibility
 
-### Learner outcomes
+The learner owns integration behavior, deterministic controls, partial-failure handling, and the
+ability to reconcile the system of record. A model recommendation is never itself proof that an
+action is allowed.
 
-- Choose models and interaction patterns based on quality, latency, context, privacy, and cost.
-- Use structured outputs and validation instead of depending on prose conventions.
-- Design retrieval pipelines and test each stage independently.
-- Add tools and agentic control flow only when they improve a measured task outcome.
-- Construct representative evaluation sets and maintain a useful failure taxonomy.
-- Defend against prompt injection, unsafe tool use, data exposure, and unbounded execution.
+### Security responsibility
 
-### Repository outcomes
+Use authenticated identities, least privilege, narrow tool scopes, input validation, output
+sanitization, rate limits, approved endpoints, and audit records. Material actions such as payment,
+deletion, external communication, or access change require stronger controls and often human review.
 
-- Modules for model APIs, context management, structured generation, retrieval, tools, and workflows.
-- Provider-neutral interfaces with documented vendor-specific examples where useful.
-- Offline and online evaluation patterns, including human review and regression gates.
-- Security exercises that demonstrate both attacks and layered mitigations.
+### Recommended labs
 
-### Exit criteria
-
-The learner can deliver an LLM application with a versioned evaluation set, baseline comparison,
-validated outputs, source-aware retrieval where needed, bounded tools, a documented threat model,
-and measured quality, latency, and per-task cost.
-
-## Phase 6 — Production AI and operations
-
-**Domain:** [production AI](05-production-ai/README.md)
-
-**Objective:** operate AI services reliably as models, data, traffic, and dependencies change.
-
-### Learner outcomes
-
-- Package and deploy inference workloads with repeatable configuration and release procedures.
-- Define service-level indicators and objectives for user-visible behavior.
-- Observe application, retrieval, model, and data quality without collecting unsafe telemetry.
-- Use caching, batching, queues, routing, and fallbacks to control performance and cost.
-- Detect drift and regressions, manage versions, and execute rollback or recovery.
-- Apply secrets management, least privilege, supply-chain controls, and incident response.
-
-### Repository outcomes
-
-- Deployment patterns for synchronous, asynchronous, batch, and streaming workloads.
-- Observability examples spanning logs, metrics, traces, evaluations, and cost attribution.
-- Release and rollback exercises with failure injection.
-- Operational runbooks and a blameless incident-analysis example.
+Use the [Level 2 lab contract](labs/level-2/README.md): API calls, function calling, MCP, database
+access, n8n orchestration, and UiPath integration.
 
 ### Exit criteria
 
-The learner can deploy the Phase 5 system, define and measure its service objectives, identify a
-regression through telemetry, safely roll back or degrade service, estimate capacity and cost, and
-document security and recovery procedures.
+The learner can design and demonstrate a workflow that safely moves from information to action,
+with explicit contracts, risk-based authorization, bounded permissions, deterministic execution,
+and a traceable outcome.
 
-## Phase 7 — AI systems design
+## Level 3 — Engineer AI: Evaluation, Reliability & Scale
 
-**Domain:** [AI systems design](06-ai-systems-design/README.md)
+**Core question:** How do we prove the system is good enough—and that it stays good enough?
 
-**Objective:** make defensible architecture decisions under real product and operational constraints.
+**Boundary:** A successful demo proves possibility. Level 3 evidence must prove repeatable quality,
+reliability, operability, and acceptable economics.
 
-### Learner outcomes
+### Required knowledge
 
-- Decompose an AI product into data, model, retrieval, orchestration, serving, and feedback boundaries.
-- Quantify latency budgets, capacity, availability, consistency, and cost trade-offs.
-- Decide when to buy, adapt, train, cache, route, or remove a model dependency.
-- Design for graceful degradation and the failure of external providers.
-- Include privacy, safety, abuse prevention, and governance in the architecture rather than after it.
+- Business requirements, acceptance criteria, test cases, evaluation metrics, and production KPIs.
+- Golden datasets covering normal, edge, known-failure, high-risk, and adversarial cases.
+- Accuracy, grounding, task success, tool-use correctness, precision, recall, F1, and calibration
+  where the decision context makes them useful.
+- Offline evaluation, online monitoring, regression testing, and cautious A/B testing.
+- Observability across input, context, model, tool calls, response, and business outcome.
+- Reliability patterns, latency/throughput, cost per successful transaction, capacity, and scale.
 
-### Repository outcomes
+### Required engineering skills
 
-- Case studies with constraints, competing designs, and explicit decisions.
-- Capacity-planning and cost-modeling exercises using stated assumptions.
-- Architecture review rubrics that test failure handling and operational ownership.
-- Decision records that show how an architecture should evolve when assumptions change.
+- Define “good” before testing and connect requirements to metrics and release thresholds.
+- Build reproducible evaluation datasets and automated regression gates.
+- Version prompts, models, context, retrieval, tools, policies, and data assumptions.
+- Trace failures end to end without collecting unnecessary sensitive content.
+- Distinguish transient technical failures from validation or consequential failures.
+- Design bounded retry, fallback, escalation, rollback, and graceful degradation.
+
+### Required tools
+
+Test and evaluation frameworks, dataset/version controls, tracing, logs, metrics, dashboards, load
+testing, CI release gates, and cost telemetry. Tools are selected for evidence quality rather than
+dashboard appearance.
+
+### Expected deliverables
+
+- Measurable acceptance criteria and a versioned representative evaluation dataset.
+- Baseline and candidate results across quality, safety, reliability, latency, cost, and business KPIs.
+- A regression gate that rejects changes violating declared thresholds.
+- An observability map with correlation IDs, safe telemetry, alerts, and investigation queries.
+- A failure-mode analysis, capacity estimate, rollback plan, runbook, and escalation path.
+
+### Production responsibility
+
+The learner owns release evidence and the ability to identify, contain, and recover from a
+regression. Infrastructure uptime is insufficient when task quality or business outcomes silently
+degrade.
+
+### Security responsibility
+
+Include adversarial and authorization cases in evaluation. Do not log credentials, tokens, secrets,
+or sensitive content without a documented business and security need. Security testing complements;
+it is not replaced by AI evaluation.
+
+### Recommended labs
+
+Use the [Level 3 lab contract](labs/level-3/README.md): evaluation, golden datasets, regression tests,
+observability, and cost/performance analysis.
 
 ### Exit criteria
 
-Given an ambiguous product scenario, the learner can clarify requirements, propose at least two
-credible architectures, quantify the important trade-offs, choose one, describe failure and recovery
-behavior, and identify the evidence that could invalidate the decision.
+The learner can show that a candidate system meets traceable release thresholds, survives realistic
+failures, remains observable under load, and can be rejected, degraded, or rolled back safely.
 
-## Phase 8 — Integrated portfolio
+## Level 4 — Own AI: Governance & Responsibility
 
-**Domain:** [projects](projects/README.md)
+**Core question:** Should AI be allowed to do this, who owns the outcome, and can we explain what happened?
 
-**Objective:** combine the roadmap's capabilities in work that can withstand engineering review.
+**Boundary:** Reliable is not automatically responsible. Named people remain accountable for the
+production capability and its effects.
 
-### Learner outcomes
+### Required knowledge
 
-- Own a problem from discovery through operations and retrospective.
-- Make trade-offs visible through concise requirements, experiments, and decision records.
-- Demonstrate improvement over a baseline using reproducible evaluation.
-- Communicate the system to technical and non-technical reviewers.
+- Governance, responsible AI, risk classification, data privacy, and lifecycle controls.
+- Authentication, authorization, RBAC, least privilege, prompt injection, and data leakage.
+- Guardrails, policy engines, deterministic authorization, human approval, and kill switches.
+- Auditability, model/tool version control, incident management, and change control.
+- Product ownership, measurable value, user impact, vendor dependency, and retirement decisions.
+- The S.A.F.E.R. ownership lens: Security, Accountability, Fairness & Safety, Evaluation, Responsibility.
 
-### Repository outcomes
+### Required engineering skills
 
-- Three project tiers: guided, specification-led, and independently scoped capstone.
-- Rubrics covering product fit, software quality, evaluation validity, reliability, safety, and communication.
-- Review checklists that reward evidence and penalize hidden manual steps.
-- Example project briefs that are domain-diverse without prescribing a single vendor stack.
+- Classify actions by consequence and decrease autonomy as risk increases.
+- Assign business, product, technical, security, and operational ownership.
+- Design approval, exception, audit, incident, recovery, and decommissioning processes.
+- Test prompt injection, privilege escalation, data exposure, unsafe tool use, and control bypass.
+- Connect governance policy to runtime enforcement, monitoring, and evidence.
+- Review quality, risk, cost, and business outcomes throughout the product lifecycle.
+
+### Required tools
+
+Identity and access management, secret management, policy enforcement, audit logging, security
+testing, data classification, monitoring, incident tracking, model/tool registries, and change
+management systems.
+
+### Expected deliverables
+
+- An AI use-case charter with named owners, intended outcomes, and prohibited uses.
+- A risk assessment and control matrix tied to runtime enforcement.
+- A human-approval design for consequential actions and defined emergency stop behavior.
+- An audit model covering decisions, context sources, versions, tool calls, approvals, and outcomes.
+- A production-readiness checklist, runbook, incident report process, and review cadence.
+- A benefits, cost, limitations, and retirement plan owned by the product or solution owner.
+
+### Production responsibility
+
+The owner is accountable for quality, risk, value, support, changes, incidents, and retirement. The
+system must be safe to operate, explain, correct, and improve—not merely capable of producing an
+answer.
+
+### Security responsibility
+
+Apply defense in depth and deterministic authorization for consequential actions. High-risk changes
+require explicit human or policy approval, full auditability, and tested containment. Connectivity
+never implies authorization.
+
+### Recommended labs
+
+Use the [Level 4 lab contract](labs/level-4/README.md): AI security, prompt injection, human approval,
+audit logging, and production-readiness review.
 
 ### Exit criteria
 
-The capstone is runnable from documented instructions, tested at meaningful boundaries, evaluated on
-representative cases, observable in operation, and accompanied by an architecture explanation,
-threat model, cost analysis, runbook, and limitations. A reviewer can trace each major claim to code,
-data, or measured evidence.
+The learner can present a governed enterprise AI product with named accountability, risk-based
+controls, verifiable approval and audit paths, incident readiness, measurable outcomes, and a clear
+decision about when the system should not act.
 
-## Dependency and project gates
+## Enterprise capability blueprint
 
-The phases are ordered, but projects should appear throughout the path rather than only at the end.
+```mermaid
+flowchart TB
+    Channels[Business Channels] --> Orchestration[AI Orchestration]
+    Orchestration --> Context[Governed Context Layer]
+    Context --> Tools[Execution Tools]
+    Tools --> Controls[Policy, Approval, Security, Audit]
+    Controls --> Outcome[Business Outcome]
+    Outcome --> Observability[Evaluation and Observability]
+    Observability --> Owners[Business, Product and Technical Owners]
+    Owners -. improvement and control .-> Orchestration
+```
 
-| After phase | Project gate | Principal review question |
+Design responsibilities remain separated:
+
+- the model reasons over an explicit task and context;
+- policy determines whether a proposed action is allowed;
+- tools execute narrow defined capabilities;
+- the enterprise system of record remains business truth;
+- reconciliation confirms durable outcome;
+- evaluation and observability measure behavior;
+- named owners accept accountability.
+
+## Cross-level skills matrix
+
+Stars indicate relative emphasis, not whether a capability may be ignored.
+
+| Capability | L1 Use | L2 Build | L3 Engineer | L4 Own |
+| --- | :---: | :---: | :---: | :---: |
+| Prompt engineering | ★★★ | ★★★ | ★★★ | ★★★ |
+| Context engineering | ★★★ | ★★★ | ★★★ | ★★★ |
+| APIs, RAG, MCP, and automation | ★ | ★★★ | ★★★ | ★★ |
+| Evaluation and observability | ★ | ★ | ★★★ | ★★★ |
+| Reliability and scale | — | ★ | ★★★ | ★★★ |
+| Security and governance | ★ | ★★ | ★★★ | ★★★ |
+| Product ownership | — | ★ | ★★ | ★★★ |
+
+## Suggested eight-week learning plan
+
+| Week | Focus | Mini-project milestone |
 | --- | --- | --- |
-| 2 | Reliable data-backed API | Can another engineer run, test, and change it safely? |
-| 3 | Evaluated predictive service | Is the claimed improvement valid and reproducible? |
-| 4 | Instrumented training pipeline | Can the learner diagnose behavior and resource use? |
-| 5 | Evaluated LLM application | Are model behavior and failure modes measured and bounded? |
-| 6 | Operated AI service | Will the service degrade safely and recover from regressions? |
-| 7–8 | Capstone and architecture review | Are the product and system trade-offs defensible end to end? |
+| 1 | AI and LLM fundamentals | Define capability, limitations, and business use case. |
+| 2 | Prompt engineering | Build a structured, versioned AI assistant. |
+| 3 | Context engineering and RAG | Add governed context with quality and permission checks. |
+| 4 | APIs, tools, and function calling | Expose and test narrow read and write capabilities. |
+| 5 | Automation, agents, and MCP | Build a tool-using workflow with policy and approval boundaries. |
+| 6 | Evaluation, testing, and observability | Add a golden dataset, regression gate, and end-to-end trace. |
+| 7 | Production architecture, security, and scale | Demonstrate failure handling and production readiness. |
+| 8 | Governance, risk, and AI product ownership | Present an accountable, governed enterprise AI product. |
+
+## Project gates
+
+| Gate | Required evidence | Principal review question |
+| --- | --- | --- |
+| Level 1 assistant | Prompt contract, governed context, structured output, test cases | Is the answer repeatable, appropriately grounded, and safe for human use? |
+| Level 2 workflow | Tool contracts, policy gate, integration tests, audit path | Can it act without receiving excessive authority? |
+| Level 3 system | Evaluation data, thresholds, telemetry, failure and cost analysis | Can we prove it works and detect when it stops working? |
+| Level 4 product | Owners, risk controls, approvals, incident process, business KPIs | Should it operate, and who is accountable for each outcome? |
+
+## Repository delivery phases
+
+Repository delivery is separate from learner maturity. Only Phase 1 is implemented in the current
+foundation.
+
+| Phase | Repository scope | Status |
+| --- | --- | --- |
+| 1 | Structure, root documentation, contribution policy, secret-safe configuration, and domain contracts | **Complete** |
+| 2 | `docs/01_Prompt_Context_Engineering/` lessons and examples | **Planned** |
+| 3 | `docs/02_AI_Tools_Automation/` lessons and examples | **Planned** |
+| 4 | `docs/03_Evaluation_Reliability_Scale/` lessons and examples | **Planned** |
+| 5 | `docs/04_Ownership_Responsibility/` lessons and examples | **Planned** |
+| 6 | Agentic AI, enterprise architectures, security guidance, and reusable templates | **Planned** |
+| 7 | Executable labs for all four maturity levels | **Planned** |
 
 ## Maintenance policy
 
-AI tooling changes faster than the underlying engineering responsibilities. To keep this roadmap
-useful:
+- Teach durable responsibilities before provider-specific procedures.
+- Use primary documentation and record versions or review dates for time-sensitive claims.
+- Treat prompts, context, retrieval, models, tools, policies, and datasets as release artifacts.
+- Check relative links, Mermaid blocks, code examples, and secret patterns with every change.
+- Record migrations when a tool or model change invalidates a documented workflow.
+- Preserve the distinction between prototype guidance and production requirements.
 
-- teach stable concepts before vendor-specific procedures;
-- cite primary sources and record access dates for time-sensitive claims;
-- isolate provider examples behind clear interfaces and label their assumptions;
-- review links, dependencies, and version-sensitive instructions as part of every content change;
-- require a migration note when a change invalidates a previously documented workflow;
-- preserve historical decisions when they explain why the current structure exists.
-
-The root [README](README.md) defines the repository-wide quality bar. Domain indexes may tighten that
-bar, but should not silently weaken it.
+The root [README](README.md) defines repository navigation and the evidence standard.

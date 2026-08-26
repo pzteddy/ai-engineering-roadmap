@@ -1,0 +1,56 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# JavaScript and Node.js
+node_modules/
+.npm/
+.pnpm-store/
+coverage/
+
+# Builds, generated output, and caches
+build/
+dist/
+out/
+output/
+.cache/
+tmp/
+temp/
+*.log
+
+# Local datasets and evaluation artifacts
+datasets/private/
+datasets/raw/
+datasets/generated/
+evaluation-results/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE and operating-system files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
